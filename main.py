@@ -6,7 +6,7 @@ from requests.exceptions import HTTPError
 url = mod.generateSearch()
 
 try:
-    r = mod.getImage(url)
+    r = mod.getImageInfo(url)
     # Grab information
     #response = requests.get(url)
     

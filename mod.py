@@ -18,7 +18,7 @@ def generateSearch():
     url = str(baseurl)+str(query)
     return url
 
-def getImage(url):
+def getImageInfo(url):
     response = requests.get(url)
     r = json.loads(response.text)
     lIDs = r['objectIDs']
