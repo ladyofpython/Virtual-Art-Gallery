@@ -1,8 +1,14 @@
 import requests, json, random, urllib, os.path
+import randomWord
 from requests.exceptions import HTTPError
 
-url ='https://collectionapi.metmuseum.org/public/collection/v1/search?q=python&hasImages=true'
-
+# generate search
+word = randomWord.rWord()
+print(word)
+query = "search?q="+word+"&hasImages=true"
+baseurl ='https://collectionapi.metmuseum.org/public/collection/v1/'
+url = str(baseurl)+str(query)
+print(url)
 try:
     # Grab information
     response = requests.get(url)
