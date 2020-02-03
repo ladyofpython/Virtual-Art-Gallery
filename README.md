@@ -11,7 +11,7 @@ To retrieve images from the MET clone this repository: <br>
 #### `git clone https://github.com/ladyofpython/virtual-art-museum.git` <br>
 and run the following command: <br>
 ####  `python3 main.py` <br>
-This will result in an image being downloaded locally.
+This will result in a random image being downloaded locally.
 
 ### This program is currently under construction.
 The wordlist in this program was generated from the following source:
