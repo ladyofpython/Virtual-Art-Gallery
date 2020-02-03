@@ -29,8 +29,6 @@ def rWord():
 
 # retrieves information from a random object
 def generateSearch(word):
-    # here the word is the random word >> need to refactor
-    # word = rWord()
     decorator()
     print("Search Word: "+str(word))
     decorator_glasses()
