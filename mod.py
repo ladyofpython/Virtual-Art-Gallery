@@ -1,5 +1,4 @@
 import requests, json, random, urllib, os.path, time
-from datetime import datetime
 # internal functions
 
 def decorator_glasses():
@@ -19,7 +18,8 @@ def rWord():
     f = open("wordlist.txt", "r")
     txt = f.read()
     txt = txt.split('\n')
-    random.seed(datetime.now())
+    random.seed(time.time())
+    random.seed(9)
     rnum = random.randint(1,len(txt))
     rWord = txt[rnum]
     rWord = rWord.replace("'", "")
