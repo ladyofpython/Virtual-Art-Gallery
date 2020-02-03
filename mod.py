@@ -1,4 +1,5 @@
 import requests, json, random, urllib, os.path, time
+
 # internal functions
 
 def decorator_glasses():
@@ -20,7 +21,9 @@ def rWord():
     txt = txt.split('\n')
     random.seed(time.time())
     rnum = random.randint(1,len(txt))
+    #print("rnum: "+str(rnum))
     rWord = txt[rnum]
+    #print("rWord: "+str(rWord))
     rWord = rWord.replace("'", "")
     return rWord
 
@@ -39,8 +42,15 @@ def generateSearch():
 def getImageInfo(url):
     response = requests.get(url)
     r = json.loads(response.text)
+    #print("reponse.text: "+str(r))
     lIDs = r['objectIDs']
+    
+    #i=0
+    #for x in lIDs:
+    #    i+=1
+    #    print(str(i)+":"+str(x))
     lr = len(lIDs)
+    #rn = random.choice[lIDs]
     rn = lIDs[random.randint(1,lr)]
     url = "https://collectionapi.metmuseum.org/public/collection/v1/objects/"
     url += str(rn)
