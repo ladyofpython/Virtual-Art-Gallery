@@ -1,6 +1,7 @@
-# Virtual Art Gallery 🖼️👩‍🎨
+# Virtual Art Museum 🖼️👩‍🎨
 ## Introduction
-Virtual Art Gallery is used to return images from the Metropolitan Museum of Art (Met) using their freely available API. <br>
+Virtual Art Museum is used to return images from the Metropolitan Museum of Art (Met) using their freely available API. <br>
+This project began as a search for a better desktop wallpaper.
 
 ## Terms and Conditions
 Please note that the data made availalbe from this application shall only be used as intended by the Met's Open Access Program. Please see https://www.metmuseum.org/blogs/now-at-the-met/2018/met-collection-api for more information.
