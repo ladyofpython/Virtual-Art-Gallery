@@ -9,5 +9,6 @@ def rWord():
     rnum = random.randint(1,len(txt))
     # print("rnum: "+ str(rnum))
     rWord = txt[rnum]
+    rWord = rWord.replace("'", "")
     # print("rWord: "+ str(rWord))
     return rWord
