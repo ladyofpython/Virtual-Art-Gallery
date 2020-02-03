@@ -8,9 +8,9 @@ Please note that the data made availalbe from this application shall only be use
 
 ## Guide
 To retrieve images from the MET clone this repository: <br>
-`git clone https://github.com/ladyofpython/virtual-art-gallery.git` <br>
+#### `git clone https://github.com/ladyofpython/virtual-art-gallery.git` <br>
 and run the following command: <br>
-`python3 main.py`
+####  `python3 main.py` <br>
 This will result in an image being downloaded locally.
 
 ### This program is currently under construction.
