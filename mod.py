@@ -19,7 +19,6 @@ def rWord():
     txt = f.read()
     txt = txt.split('\n')
     random.seed(time.time())
-    random.seed(9)
     rnum = random.randint(1,len(txt))
     rWord = txt[rnum]
     rWord = rWord.replace("'", "")
