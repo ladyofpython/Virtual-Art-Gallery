@@ -18,12 +18,13 @@ def mainMenu():
         print("You selected: 1 - Search for an image")
         userInput = ("Enter a search term: ")
 
-elif userInput == '2':
+    elif userInput == '2':
         # option 2 - randomly return an image
         print("You selected: 2 - Randomly return an image")
 
         try:
-            url = mod.generateSearch()
+            rWord = mod.rWord()
+            url = mod.generateSearch(rWord)
             r = mod.getImageInfo(url)
             filename, rImage = mod.setImageInfo(r)
             with open(filename, 'wb') as handle:
