@@ -1,5 +1,9 @@
 import requests, json, random, urllib, os.path
 
+######################
+# EXTERNAL FUNCTIONS #
+######################
+
 def rWord():
     f = open("wordlist.txt", "r")
     txt = f.read()
@@ -29,3 +33,45 @@ def getImageInfo(url):
     response = requests.get(url)
     r = json.loads(response.text)
     return r
+
+######################
+# INTERNAL FUNCTIONS #
+######################
+
+def setImageInfo(r):
+    i={}
+    # set primage image
+    rImage=r['primaryImage']
+    
+    # set object name
+    rON = r['objectName']
+    
+    # set object title
+    rTitle = r['title']
+    
+    # set object time period
+    rPeriod = r['period']
+    if rPeriod == "":
+        rPeriod = "n.d."
+
+    # set artist name
+    rName = r['artistDisplayName']
+    if rName == "":
+        rName = "unknown"
+
+    # set fileName
+    fName = str(rName+str(rTitle)+str(rPeriod))
+    filename = ""
+    for x in fName:
+        if x.isalnum():
+            filename += x
+    filename += ".jpg"
+    # Display Data
+    print("Artist: "+rName)
+    print("Title: "+rTitle)
+    print("Medium: "+rON)
+    print("Period: "+rPeriod)
+    print("Filename: "+filename)
+    
+    return filename, rImage
+
