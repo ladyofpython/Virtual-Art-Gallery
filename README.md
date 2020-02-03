@@ -11,3 +11,5 @@ and run the following command: <br>
 `python3 main.py`
 
 ### This program is currently under construction.
+The wordlist in this program was generated from the following source:
+http://www.math.sjsu.edu/~foster/dictionary.txt
