@@ -16,7 +16,7 @@ def mainMenu():
     if userInput == '1':
         # option 1 - search for an image
         print("You selected: 1 - Search for an image")
-
+        userInput = ("Enter a search term: ")
 
 elif userInput == '2':
         # option 2 - randomly return an image
