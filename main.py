@@ -3,31 +3,24 @@ import mod
 #import randomWord
 from requests.exceptions import HTTPError
 
-# generate search
-#word = randomWord.rWord()
-#print("Search Word: "+str(word))
-#query = "search?q="+word+"&hasImages=true"
-#baseurl ='https://collectionapi.metmuseum.org/public/collection/v1/'
-#url = str(baseurl)+str(query)
-#print(url)
-
 url = mod.generateSearch()
 
 try:
+    r = mod.getImage(url)
     # Grab information
-    response = requests.get(url)
+    #response = requests.get(url)
     
     # Pull a random art selection from the list
-    r = json.loads(response.text)
-    lIDs = r['objectIDs']
-    lr = len(lIDs)
-    rn = lIDs[random.randint(1,lr)]
+    #r = json.loads(response.text)
+    #lIDs = r['objectIDs']
+    #lr = len(lIDs)
+    #rn = lIDs[random.randint(1,lr)]
     # print(rn)
-    url2='https://collectionapi.metmuseum.org/public/collection/v1/objects/'
-    url2+=str(rn)
+    #url2='https://collectionapi.metmuseum.org/public/collection/v1/objects/'
+    #url2+=str(rn)
     # request the image from the MET API
-    response = requests.get(url2)
-    r = json.loads(response.text)
+    #response = requests.get(url2)
+    #r = json.loads(response.text)
     # print(r)
 
 except HTTPError as http_err:
