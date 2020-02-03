@@ -4,7 +4,7 @@ from requests.exceptions import HTTPError
 
 # generate search
 word = randomWord.rWord()
-print(word)
+print("Search Word: "+str(word))
 query = "search?q="+word+"&hasImages=true"
 baseurl ='https://collectionapi.metmuseum.org/public/collection/v1/'
 url = str(baseurl)+str(query)
@@ -36,27 +36,19 @@ else:
 
 # grab primary image [primaryImage]
 rImage=r['primaryImage']
-print(rImage)
-
+# print(rImage)
 # grab the physical type of the object [objectName]
 rON=r['objectName']
-print(rON)
-
+# print(rON)
 # grab title [title]
 rTitle=r['title']
-print(rTitle)
-
-# grab culture [culture]
-#rCulture=r['culture']
-#print(rCulture)
-
+# print(rTitle)
 # grab time period when object was created [period]
 rPeriod=r['period']
-print(rPeriod)
-
+# print(rPeriod)
 # grab artist name [artistDisplayName]
 rName=r['artistDisplayName']
-print(rName)
+# print(rName)
 
 # print the location where the image was saved
 # file is saved as ARTIST_TITLE_PERIOD
