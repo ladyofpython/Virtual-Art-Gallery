@@ -1,27 +1,38 @@
-import requests, json, random, urllib, os.path
+import requests, json, random, urllib, os.path, time
+# internal functions
+def decorator_glasses():
+    time.sleep(1)
+    print("( •_•)>⌐■-■ ")
+    time.sleep(1)
+    print("(⌐■_■) ")
 
-######################
-# EXTERNAL FUNCTIONS #
-######################
+# external functions
 
+def decorator():
+    print("#----------------------------------------------------------------------------#")
+
+# generates a random word using a local dictionary file
 def rWord():
     f = open("wordlist.txt", "r")
     txt = f.read()
-    #print(txt)
     txt = txt.split('\n')
     rnum = random.randint(1,len(txt))
     rWord = txt[rnum]
     rWord = rWord.replace("'", "")
     return rWord
 
+# retrieves information from a random object
 def generateSearch():
     word = rWord()
+    decorator()
     print("Search Word: "+str(word))
-    query = "search?q="+word+"&hasImages=true"
+    decorator_glasses()
     baseurl = "https://collectionapi.metmuseum.org/public/collection/v1/"
+    query = "search?q="+word+"&hasImages=true"
     url = str(baseurl)+str(query)
     return url
 
+# selects an object in the Met database and returns information on it
 def getImageInfo(url):
     response = requests.get(url)
     r = json.loads(response.text)
@@ -34,31 +45,23 @@ def getImageInfo(url):
     r = json.loads(response.text)
     return r
 
-######################
-# INTERNAL FUNCTIONS #
-######################
-
+# sets some information about the selected object in the Met database
 def setImageInfo(r):
-    i={}
     # set primage image
     rImage=r['primaryImage']
-    
     # set object name
     rON = r['objectName']
-    
     # set object title
     rTitle = r['title']
-    
     # set object time period
     rPeriod = r['period']
     if rPeriod == "":
         rPeriod = "n.d."
-
     # set artist name
     rName = r['artistDisplayName']
     if rName == "":
         rName = "unknown"
-
+    decorator()
     # set fileName
     fName = str(rName+str(rTitle)+str(rPeriod))
     filename = ""

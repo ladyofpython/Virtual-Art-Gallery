@@ -23,4 +23,4 @@ except Exception as err:
     print(f'Other error occurred: {err}')
 else:
     print('File Downloaded Successfully. =^.^=')
-
+    mod.decorator()
