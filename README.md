@@ -1,6 +1,6 @@
 # Virtual Art Museum 🖼️👩‍🎨
 ## Introduction
-Virtual Art Museum is used to return images from the Metropolitan Museum of Art (Met) using their freely available API. <br>
+Virtual Art Museum is used to return images from the Metropolitan Museum of Art (Met) using their API. <br>
 This project began as a search for a better desktop wallpaper.
 
 ## Terms and Conditions
