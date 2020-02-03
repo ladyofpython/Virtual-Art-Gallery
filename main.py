@@ -1,14 +1,18 @@
 import requests, json, random, urllib, os.path
-import randomWord
+import mod
+#import randomWord
 from requests.exceptions import HTTPError
 
 # generate search
-word = randomWord.rWord()
-print("Search Word: "+str(word))
-query = "search?q="+word+"&hasImages=true"
-baseurl ='https://collectionapi.metmuseum.org/public/collection/v1/'
-url = str(baseurl)+str(query)
-print(url)
+#word = randomWord.rWord()
+#print("Search Word: "+str(word))
+#query = "search?q="+word+"&hasImages=true"
+#baseurl ='https://collectionapi.metmuseum.org/public/collection/v1/'
+#url = str(baseurl)+str(query)
+#print(url)
+
+url = mod.generateSearch()
+
 try:
     # Grab information
     response = requests.get(url)
