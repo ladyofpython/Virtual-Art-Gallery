@@ -9,7 +9,8 @@ def decorator_glasses():
 # external functions
 
 def decorator():
-    print("#----------------------------------------------------------------------------#")
+    decor = "  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  \n    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    "
+    return decor
 
 # generates a random word using a local dictionary file
 def rWord():
@@ -24,7 +25,7 @@ def rWord():
 # retrieves information from a random object
 def generateSearch():
     word = rWord()
-    decorator()
+    print(decorator())
     print("Search Word: "+str(word))
     decorator_glasses()
     baseurl = "https://collectionapi.metmuseum.org/public/collection/v1/"
@@ -61,7 +62,6 @@ def setImageInfo(r):
     rName = r['artistDisplayName']
     if rName == "":
         rName = "unknown"
-    decorator()
     # set fileName
     fName = str(rName+str(rTitle)+str(rPeriod))
     filename = ""
@@ -70,11 +70,14 @@ def setImageInfo(r):
             filename += x
     filename += ".jpg"
     # Display Data
-    print("Artist: "+rName)
-    print("Title: "+rTitle)
-    print("Medium: "+rON)
-    print("Period: "+rPeriod)
-    print("Filename: "+filename)
+    print("\n | Artist: |  "+rName)
+    print("  - - - - -")
+    print(" | Title:  |  "+rTitle)
+    print("  - - - - -")
+    print(" | Medium: |  "+rON)
+    print("  - - - - -")
+    print(" | Period: |  "+rPeriod+"\n")
+    print(" [/] Filename: "+filename)
     
     return filename, rImage
 

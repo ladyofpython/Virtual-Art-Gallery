@@ -22,5 +22,14 @@ except HTTPError as http_err:
 except Exception as err:
     print(f'Other error occurred: {err}')
 else:
-    print('File Downloaded Successfully. =^.^=')
-    mod.decorator()
+    print(' [+] File Downloaded Successfully. =^.^=')
+    decor = mod.decorator()
+    decor2 = ""
+    for x in decor:
+        if x == "\\":
+            x = "n"
+        elif x == "n":
+            x = "\\"
+        decor2  += x
+    decor2 = decor2[::-1]
+    print(decor2)
