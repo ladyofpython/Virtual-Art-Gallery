@@ -1,5 +1,7 @@
 import requests, json, random, urllib, os.path, time
+from datetime import datetime
 # internal functions
+
 def decorator_glasses():
     time.sleep(1)
     print("( •_•)>⌐■-■ ")
@@ -9,14 +11,15 @@ def decorator_glasses():
 # external functions
 
 def decorator():
-    decor = "  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  \n    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    "
-    return decor
+    print()
+    print()
 
 # generates a random word using a local dictionary file
 def rWord():
     f = open("wordlist.txt", "r")
     txt = f.read()
     txt = txt.split('\n')
+    random.seed(datetime.now())
     rnum = random.randint(1,len(txt))
     rWord = txt[rnum]
     rWord = rWord.replace("'", "")
@@ -25,7 +28,7 @@ def rWord():
 # retrieves information from a random object
 def generateSearch():
     word = rWord()
-    print(decorator())
+    decorator()
     print("Search Word: "+str(word))
     decorator_glasses()
     baseurl = "https://collectionapi.metmuseum.org/public/collection/v1/"
@@ -70,13 +73,10 @@ def setImageInfo(r):
             filename += x
     filename += ".jpg"
     # Display Data
-    print("\n | Artist: |  "+rName)
-    print("  - - - - -")
-    print(" | Title:  |  "+rTitle)
-    print("  - - - - -")
-    print(" | Medium: |  "+rON)
-    print("  - - - - -")
-    print(" | Period: |  "+rPeriod+"\n")
+    print("\n   Artist:    "+rName)
+    print("   Title:     "+rTitle)
+    print("   Medium:    "+rON)
+    print("   Period:    "+rPeriod+"\n")
     print(" [/] Filename: "+filename)
     
     return filename, rImage
