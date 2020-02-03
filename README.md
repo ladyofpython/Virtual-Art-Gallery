@@ -1,2 +1,3 @@
-# return-MET-art
-Use python to scrape the Metropolitan Museum of Art
+# 
+To retrieve images from Metropolitan Museum of Art using this program run the following command:
+`python3 main.py`
