@@ -1,8 +1,8 @@
 ## Introduction
-return-MET-art is used to return images from the Metropolitan Museum of Art (MET) using their freely available API. <br>
+return-MET-art is used to return images from the Metropolitan Museum of Art (Met) using their freely available API. <br>
 
 ## Terms and Conditions
-Please note that the data made availalbe from this application shall only be used as intended by the MET's Open Access Program. Please see https://www.metmuseum.org/blogs/now-at-the-met/2018/met-collection-api for more information.
+Please note that the data made availalbe from this application shall only be used as intended by the Met's Open Access Program. Please see https://www.metmuseum.org/blogs/now-at-the-met/2018/met-collection-api for more information.
 
 ## Guide
 To retrieve images from the MET clone this repository: <br>
