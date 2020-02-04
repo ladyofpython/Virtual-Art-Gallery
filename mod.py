@@ -89,3 +89,15 @@ def setImageInfo(r):
     
     return filename, rImage
 
+# gets the image from the Met
+def getImage(filename, rImage):
+    with open(filename, 'wb') as handle:
+        response = requests.get(rImage, stream=True)
+        if not response.ok:
+            print(response)
+
+        for block in response.iter_content(1024):
+            if not block:
+                break
+
+            handle.write(block)

@@ -12,45 +12,61 @@ def mainMenu():
 
     #take user input
     userInput = input("Select an Option: ")
-    # set user decision
+
+# set user decision
     if userInput == '1':
-        # option 1 - search for an image
-        print("You selected: 1 - Search for an image")
-        userInput = ("Enter a search term: ")
+        option1()
 
     elif userInput == '2':
-        # option 2 - randomly return an image
-        print("You selected: 2 - Randomly return an image")
-
-        try:
-            rWord = mod.rWord()
-            url = mod.generateSearch(rWord)
-            r = mod.getImageInfo(url)
-            filename, rImage = mod.setImageInfo(r)
-            with open(filename, 'wb') as handle:
-                response = requests.get(rImage, stream=True)
-                if not response.ok:
-                    print(response)
-
-                for block in response.iter_content(1024):
-                    if not block:
-                        break
-
-                    handle.write(block)
-
-        except HTTPError as http_err:
-            print(f'HTTP error occurred: {http_err}')
-        except Exception as err:
-            print(f'Other error occurred: {err}')
-        else:
-            print(' [+] File Downloaded Successfully. =^.^=')
-            mod.decorator()
+        option2()
 
     elif userInput == '0':
+        option0()
+
+
+# INTERNAL FUNCTIONS
+
+def option1():
+    # option 1 - search for an image
+    print("You selected: 1 - Search for an image")
+    userInput = ("Enter a search term: ")
+    print("You entered: "+userInput+"\n")
+    try:
+        url=mod.generateSearch(userInput)
+        r = mod.getImageInfo(url)
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')
+    except Exception as err:
+        print(f'Other error occurred: {err}')
+    else:
+        print(' [+] File Downloaded Successfully. =^.^=')
+        mod.decorator()
+
+def option2():
+    # option 2 - randomly return an image
+    print("You selected: 2 - Randomly return an image")
+
+    try:
+        rWord = mod.rWord()
+        url = mod.generateSearch(rWord)
+        r = mod.getImageInfo(url)
+        filename, rImage = mod.setImageInfo(r)
+        mod.getImage(filename, rImage)
+        print(' [+] File Downloaded Successfully. =^.^=')
+    except HTTPError as http_err:
+        print(f'HTTP error occurred: {http_err}')
+    except Exception as err:
+        print(f'Other error occurred: {err}')
+    else:
+        print('[-]FAIL: Program End.')
+        mod.decorator()
+
+def option0():
         # option 0 - exit program
         print("You selected: 0 - Exit Program")
         print("Exiting Program.")
         exit(0)
 
-
+# MAIN 
 mainMenu()
+
