@@ -29,11 +29,16 @@ def mainMenu():
 def option1():
     # option 1 - search for an image
     print("You selected: 1 - Search for an image")
-    userInput = ("Enter a search term: ")
+    
+    # get search term from user
+    userInput = input("Enter a search term: ")
     print("You entered: "+userInput+"\n")
     try:
+        # use term to search for image
         url=mod.generateSearch(userInput)
+        # return an image from the Met
         r = mod.getImageInfo(url)
+
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
     except Exception as err:
