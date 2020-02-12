@@ -40,7 +40,7 @@ def option1():
         r = mod.getImageInfo(url)
         #print(str(r))
         filename, rImage = mod.setImageInfo(r)
-        print("URL: "+rImage)
+        print(" [/] URL"+str(rImage))
         mod.getImage(filename, rImage)
     
     except HTTPError as http_err:

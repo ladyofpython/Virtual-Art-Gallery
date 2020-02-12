@@ -85,7 +85,7 @@ def setImageInfo(r):
     print("   Title:     "+rTitle)
     print("   Medium:    "+rON)
     print("   Period:    "+rPeriod+"\n")
-    print(" [/] Filename: "+filename)
+    print(" [-] Filename: "+filename)
     
     return filename, rImage
 
