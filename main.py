@@ -26,19 +26,23 @@ def mainMenu():
 
 # INTERNAL FUNCTIONS
 
+# option 1 - search for an image
 def option1():
-    # option 1 - search for an image
     print("You selected: 1 - Search for an image")
-    
     # get search term from user
     userInput = input("Enter a search term: ")
-    print("You entered: "+userInput+"\n")
     try:
         # use term to search for image
         url=mod.generateSearch(userInput)
+        # TEST PRINT
+        #print("URL: " + url)
         # return an image from the Met
         r = mod.getImageInfo(url)
-
+        #print(str(r))
+        filename, rImage = mod.setImageInfo(r)
+        print("URL: "+rImage)
+        mod.getImage(filename, rImage)
+    
     except HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')
     except Exception as err:
