@@ -43,11 +43,6 @@ def getImageInfo(url):
     r = json.loads(response.text)
     #print("reponse.text: "+str(r))
     lIDs = r['objectIDs']
-    
-    #i=0
-    #for x in lIDs:
-    #    i+=1
-    #    print(str(i)+":"+str(x))
     lr = len(lIDs)
     #rn = random.choice[lIDs]
     rn = lIDs[random.randint(1,lr)]
@@ -56,6 +51,35 @@ def getImageInfo(url):
     response = requests.get(url)
     r = json.loads(response.text)
     return r
+
+# gives the user a choice on which image to download based off of artist and title
+def getImageInfoAll(url):
+    response = requests.get(url)
+    r = json.loads(response.text)
+    lIDs = r['objectIDs']
+    i = 0
+    idict = {"0":"",}
+    for x in lIDs:
+        if i >= 10:
+            break
+        i+=1
+        idict[i]=str(x)
+        url="https://collectionapi.metmuseum.org/public/collection/v1/objects/"+str(x)
+        response=requests.get(url)
+        r=json.loads(response.text)
+        #print(r)
+        rArtist=r['artistDisplayName']
+        if rArtist=="":rArtist="Unknown"
+        rTitle=r['title']
+        if rTitle=="":rTitle="Unknown"
+        print(str(i)+" "+str(rArtist)+" - "+str(rTitle))
+    i=str(input("Select an image to download: "))
+    imgID=idict[i]
+    print(imgID)
+    url="https://collectionapi.metmuseum.org/public/collection/v1/objects/"+str(imgID)
+    print(url)
+    response=requests.get(url)
+    return json.loads(response.text)
 
 # sets some information about the selected object in the Met database
 def setImageInfo(r):
