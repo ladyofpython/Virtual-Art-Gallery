@@ -29,8 +29,6 @@ def rWord():
 
 # retrieves information from a random object
 def generateSearch(word):
-    decorator()
-    print("Search Word: "+str(word))
     decorator_glasses()
     baseurl = "https://collectionapi.metmuseum.org/public/collection/v1/"
     query = "search?q="+word+"&hasImages=true"
@@ -59,6 +57,7 @@ def getImageInfoAll(url):
     lIDs = r['objectIDs']
     i = 0
     idict = {"0":"",}
+    print()
     for x in lIDs:
         if i >= 10:
             break
@@ -73,11 +72,9 @@ def getImageInfoAll(url):
         rTitle=r['title']
         if rTitle=="":rTitle="Unknown"
         print(str(i)+" "+str(rArtist)+" - "+str(rTitle))
-    i=str(input("Select an image to download: "))
+    i=int(input("Select an image to download: "))
     imgID=idict[i]
-    print(imgID)
     url="https://collectionapi.metmuseum.org/public/collection/v1/objects/"+str(imgID)
-    print(url)
     response=requests.get(url)
     return json.loads(response.text)
 

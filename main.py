@@ -29,12 +29,10 @@ def option1():
 		# use term to search for image
 		url=mod.generateSearch(userInput)
 		# TEST PRINT
-		print("URL: " + url)
+		# print("URL: " + url)
 		# return an image from the Met
 		r = mod.getImageInfoAll(url)
-		print(str(r))
 		filename, rImage = mod.setImageInfo(r)
-		print(" [/] URL"+str(rImage))
 		mod.getImage(filename, rImage)
 	except HTTPError as http_err:
 		print(f'HTTP error occurred: {http_err}')
