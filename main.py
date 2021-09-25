@@ -59,8 +59,7 @@ def option2():
 	except Exception as err:
 		print(f'Other error occurred: {err}')
 	else:
-		print('[-]FAIL: Program End.')
-	mod.decorator()
+		mod.decorator()
 
 def option0():
 		# option 0 - exit program
