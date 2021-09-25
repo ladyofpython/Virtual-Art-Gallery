@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+
 import requests, json, random, urllib, os.path
 import mod
 import menuLogic
