@@ -2,7 +2,6 @@
 
 import requests, json, random, urllib, os.path
 import mod
-import menuLogic
 from requests.exceptions import HTTPError
 
 def mainMenu():
@@ -24,7 +23,6 @@ def mainMenu():
 # INTERNAL FUNCTIONS
 # option 1 - search for an image
 def option1():
-	print("You selected: 1 - Search for an image")
 	# get search term from user
 	userInput = input("Enter a search term: ")
 	try:	
@@ -46,7 +44,6 @@ def option1():
 
 def option2():
 	# option 2 - randomly return an image
-	print("You selected: 2 - Randomly return an image")
 	try:
 		rWord = mod.rWord()
 		url = mod.generateSearch(rWord)
@@ -63,7 +60,6 @@ def option2():
 
 def option0():
 		# option 0 - exit program
-		print("You selected: 0 - Exit Program")
 		print("Exiting Program.")
 		exit(0)
 
