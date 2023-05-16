@@ -4,9 +4,9 @@ import requests, json, random, urllib, os.path, time
 
 def decorator_glasses():
     time.sleep(1)
-    print("( •_•)>⌐■-■ ")
+    print("\n( •_•)>⌐■-■ ")
     time.sleep(1)
-    print("(⌐■_■) ")
+    print("(⌐■_■)\n")
 
 # external functions
 
@@ -31,8 +31,9 @@ def rWord():
 def generateSearch(word):
     decorator_glasses()
     baseurl = "https://collectionapi.metmuseum.org/public/collection/v1/"
-    query = "search?q="+word+"&hasImages=true"
+    query = "search?hasImages=true&q="+word
     url = str(baseurl)+str(query)
+    print(f"url: {url}")
     return url
 
 # selects an object in the Met database and returns information on it
@@ -75,6 +76,7 @@ def getImageInfoAll(url):
     i=int(input("Select an image to download: "))
     imgID=idict[i]
     url="https://collectionapi.metmuseum.org/public/collection/v1/objects/"+str(imgID)
+    print(f"url: {url}")
     response=requests.get(url)
     return json.loads(response.text)
 
